@@ -1,0 +1,15 @@
+{
+  "name": "primeraapp",
+  "version": "1.0.0",
+  "description": "esta es mi primera aplicacion en express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AMDGR",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {}
+}
