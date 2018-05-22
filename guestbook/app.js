@@ -19,7 +19,7 @@ app.get('/new-entry',(request, response) => response.render('new-entry'));
 
 app.post('/new-entry', (request, response) => {
     if(!request.body.title || !request.body.body){
-        response.status(400).send('Las entradas deben de tener un título y un mensaje');
+        response.status(400).send('Las entradas deben de tener título y mensaje');
         return;
     }
     entries.push({
