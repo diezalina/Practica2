@@ -1,0 +1,27 @@
+<% include header %>
+<h2>Introduce una nueva víctima</h2>
+<form method="post" role="form">
+    <div class="form-group">
+        <label for="title">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Escribe su nombre" required/>
+    </div>
+    <div class="form-group">
+        <label for="body">Dirección</label>
+        <textarea class="form-control" id="direccion" name="direccion" placeholder="Escribe su dirección" rows="3" required>
+        </textarea>
+    </div>
+    <div class="form-group">
+        <label for="body">Teléfono</label>
+        <textarea class="form-control" id="telefono" name="telefono" placeholder="Escribe su teléfono" rows="1" required>
+        </textarea>
+    </div>
+    <div class="form-group">
+        <label for="body">Instragram</label>
+        <textarea class="form-control" id="instagram" name="instagram" placeholder="Escribe su instagram" rows="1" required>
+        </textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Agregar"/>
+    </div>
+</form>
+<% include footer %>

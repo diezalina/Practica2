@@ -1,0 +1,22 @@
+<% include header %>
+<h1>Listado de víctimas</h1>
+<% if(entries.length) { %>
+    <% entries.forEach((entry)=> { %>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-muted pull-right">
+                    <%= entry.created %>
+                </div>
+                <%= entry.name %>
+            </div>
+            <div class="panel-body">
+                <%= entry.direccion %>
+                <%= entry.telefono %>
+                <%= entry.instagram %>
+            </div>
+        </div>
+    <% }) %>
+<% } else { %>
+    <p>No hay víctimas todavía! <a href="/new-entry">Agregar una!</a></p>
+<% } %>
+<% include footer %>
