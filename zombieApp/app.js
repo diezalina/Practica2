@@ -4,29 +4,21 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
+
+//donde definimos lo de views
+app.use(express.static(path.resolve(__dirname,"public")));
+app.set("views", path.resolve(__dirname,"views"));
+app.set("view engine","ejs");
+
+//meter los app.get de cada pagina
+app.get('/', (request, response) => response.render('index'));
+app.get('/new-entry', (request, response) => response.render('new-entry'));
+app.get('/armas', (request, response) => response.render('armas'));
+app.get('/victimas', (request, response) => response.render('victimas'));
+app.get('/clases', (request, response) => response.render('clases'));
+
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
-var entries = [];
-app.locals.entries = entries;
-
-app.get('/', (request, response) => response.render('index'));
-
-app.get('/new-entry',(request, response) => response.render('new-entry'));
-
-app.post('/new-entry', (request, response) => {
-    if(!request.body.title || !request.body.body){
-        response.status(400).send('Las víctimas deben tener nombre, dirección, teléfono e instagram');
-        return;
-    }
-    entries.push({
-        name: request.body.name,
-        direccion: request.body.direccion,
-        telefono: request.body.telefono,
-        instagram: request.body.instagram,
-        created: new Date()
-    });
-    response.redirect('/');
-});
 
 app.use((request, response) => response.status(400).render('404'));
 
