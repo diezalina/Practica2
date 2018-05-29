@@ -6,22 +6,43 @@ var bodyParser = require('body-parser');
 var app = express();
 
 //donde definimos lo de views
-app.use(express.static(path.resolve(__dirname,"public")));
 app.set("views", path.resolve(__dirname,"views"));
 app.set("view engine","ejs");
+var entries = [];
+app.locals.entries = entries;
 
-//meter los app.get de cada pagina
+//para las imgs
+var publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
+
+
+//meter los app.get de cada pagina, esto ayuda a acceder a ellas
 app.get('/', (request, response) => response.render('index'));
 app.get('/new-entry', (request, response) => response.render('new-entry'));
 app.get('/armas', (request, response) => response.render('armas'));
 app.get('/victimas', (request, response) => response.render('victimas'));
 app.get('/clases', (request, response) => response.render('clases'));
 
-app.set('views', path.resolve(__dirname, 'views'));
-app.set('view engine', 'ejs');
+//para agregar víctimas
+app.post('/new-entry', (request, response) => {
+    if(!request.title.name || !request.body.direction || !request.body.phone || !request.body.instagram){
+        response.status(400).send('Las víctimas deben de contar con nombre, dirección, teléfono e instagram');
+        return;
+    }
+    entries.push({
+        name: request.title.name,
+        direction: request.body.direction,
+        phone: request.body.phone,
+        instagram: request.body.instagram,
+        added: new Date()
+    });
+    response.redirect('/victimas');
+});
 
+//en caso de error
 app.use((request, response) => response.status(400).render('404'));
 
+//creación del servidor
 http.createServer(app).listen(3000, () =>
 console.log('La aplicación zombie está corriendo en el puerto 3000')
 );
