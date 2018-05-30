@@ -29,19 +29,19 @@ app.get('/clases', (request, response) => response.render('clases'));
 
 //para agregar víctimas
 app.post('/new-entry', (request, response) => {
-    if(!request.title.name || !request.body.direction || !request.body.phone || !request.body.instagram){
-        response.status(400).send('Las víctimas deben de contar con nombre, dirección, teléfono e instagram');
+    if(!request.body.name || !request.body.address || !request.body.phone || !request.body.instagram){
+        response.status(400).send('Las víctimas deben de tener nombre, dirección, teléfono e instagram');
         return;
     }
     entries.push({
-        name: request.title.name,
-        direction: request.body.direction,
+        name: request.body.name,
+        address: request.body.address,
         phone: request.body.phone,
-        instagram: request.body.instagram,
-        added: new Date()
+        instagram: request.body.instagram
     });
-    response.redirect('/victimas');
+    response.redirect('/');
 });
+
 
 //en caso de error
 app.use((request, response) => response.status(400).render('404'));
