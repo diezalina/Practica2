@@ -15,6 +15,9 @@ app.set("view engine","ejs");
 var entries = [];
 app.locals.entries = entries;
 
+//definicion de la ip malvada
+var IP_MALVADA = "::1";
+
 //para las imgs
 var publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
@@ -42,6 +45,14 @@ app.post('/new-entry', (request, response) => {
     response.redirect('/');
 });
 
+//proceso para negar la IP
+app.use((request, response, next)=>{
+    if(request.ip === IP_MALVADA){
+        response.status(401).send("Intento de acceso no autorizado");
+    }else{
+        next();
+    }
+});
 
 //en caso de error
 app.use((request, response) => response.status(400).render('404'));
