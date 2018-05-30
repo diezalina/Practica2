@@ -16,7 +16,7 @@ var entries = [];
 app.locals.entries = entries;
 
 //definicion de la ip malvada
-var IP_MALVADA = "::1";
+var IP_MALVADA = "192.168.93.132";
 
 //para las imgs
 var publicPath = path.join(__dirname, 'public');
