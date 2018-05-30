@@ -2,8 +2,12 @@ var http = require('http');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
+var logger = require('morgan');
 
 var app = express();
+
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: false}));
 
 //donde definimos lo de views
 app.set("views", path.resolve(__dirname,"views"));

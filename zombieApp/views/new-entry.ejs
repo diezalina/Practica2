@@ -1,4 +1,5 @@
 <% include header %>
+<div id="datosxAgregar">
 <h2>Introduce una nueva víctima</h2>
 <form method="post" role="form">
     <div class="form-group">
@@ -7,21 +8,19 @@
     </div>
     <div class="form-group">
         <label for="body">Dirección</label>
-        <textarea class="form-control" id="address" name="address" placeholder="Escribe su dirección" required>
-        </textarea>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Escribe su dirección" required>
     </div>
     <div class="form-group">
         <label for="body">Teléfono</label>
-        <textarea class="form-control" id="phone" name="phone" placeholder="Escribe su teléfono" required>
-        </textarea>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="Escribe su teléfono" required>
     </div>
     <div class="form-group">
         <label for="body">Instragram</label>
-        <textarea class="form-control" id="instagram" name="instagram" placeholder="Escribe su instagram" required>
-        </textarea>
+        <input type="text" class="form-control" id="instagram" name="instagram" placeholder="Escribe su instagram" required>
     </div>
     <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Agregar"/>
     </div>
+</div>
 </form>
 <% include footer %>

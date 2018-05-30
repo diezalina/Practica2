@@ -4,13 +4,14 @@
   "description": "Practica zombie",
   "main": "index.js",
   "scripts": {
-    "start":"node app.js"
+    "start": "node app.js"
   },
   "author": "AMDGR",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
   }
 }

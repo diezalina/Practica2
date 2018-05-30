@@ -1,4 +1,6 @@
 <% include header %>
+<div id="tablaClases">
+<h1>Clases de Zombies conocidos</h1>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -13,16 +15,27 @@
       <td>Tipo de zombie difícil de ver, se cohibe con facilidad</td>
       <td><img src="/pup.png"></td>
     </tr>
-    <tr="bg-warning">
+    <tr class="bg-warning">
       <th scope="row">Zombie asustadizo</th>
       <td>Zombie altamente asustadizo, vive de manera hermitaña</td>
       <td><img src="/wow.png"></td>
     </tr>
-    <tr="bg-danger">
+    <tr class="bg-danger">
       <th scope="row">Zombie agresivo</th>
       <td>Altamente peligroso, no te dejes engañar por su apariencia</td>
       <td><img src="/cinnamoroll.jpg"></td>
     </tr>
+  <tr class="bg-success">
+    <th scope="row">Zombie pacifista</th>
+    <td>Se le considera pacifista, pero se le dice así solo porque no hace nada</td>
+    <td><img src="/meh.png"></td>
+  </tr>
+  <tr class="bg-info">
+    <th scope="row">Zombies gemelos</th>
+    <td>Alados y altamente ágiles</td>
+    <td><img src="/pink.png" style="width=20%;"><img src="/angel.png" style="width=20%;"></td>
+  </tr>
   </tbody>
 </table>
+</div>
 <% include footer %>
