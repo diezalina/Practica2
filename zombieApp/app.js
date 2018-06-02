@@ -30,7 +30,7 @@ app.get('/armas', (request, response) => response.render('armas'));
 app.get('/victimas', (request, response) => response.render('victimas'));
 app.get('/clases', (request, response) => response.render('clases'));
 
-//para agregar víctimas
+//para agregar víctimas en un formulario 
 app.post('/new-entry', (request, response) => {
     if(!request.body.name || !request.body.address || !request.body.phone || !request.body.instagram){
         response.status(400).send('Las víctimas deben de tener nombre, dirección, teléfono e instagram');
