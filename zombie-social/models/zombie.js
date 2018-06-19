@@ -7,7 +7,7 @@ var zombieSchema = mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
-    displayName: { type: String, required: true },
+    displayName: { type: String },
     bio: String
 });
 
@@ -15,7 +15,7 @@ var donothing = () => {
 
 }
 //antes de guardar se obtiene lo que el usuario ingreso
-zombieSchema.pre("save",(done) => {
+zombieSchema.pre("save",function(done) {
     var zombie = this;
     if(!zombie.isModified("password")){ //se checa si fue modificada la pass
         return done();
