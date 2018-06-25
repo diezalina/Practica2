@@ -14,7 +14,8 @@ var zombieSchema = mongoose.Schema({
 var donothing = () => {
 
 }
-//antes de guardar se obtiene lo que el usuario ingreso
+//antes de guardar se obtiene lo que el usuario ingreso esto no nos sirve en armas
+//debido a que la usamos solo para encriptar la contraseña
 zombieSchema.pre("save",function(done) {
     var zombie = this;
     if(!zombie.isModified("password")){ //se checa si fue modificada la pass

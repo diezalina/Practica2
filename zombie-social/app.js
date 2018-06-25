@@ -10,6 +10,9 @@ var flash = require("connect-flash");
 var routes = require("./routes");
 var app = express();
 
+var publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
+
 mongoose.connect("mongodb://localhost:27017/zombie_nest");
 app.set("port", process.env.PORT || 3000);
 

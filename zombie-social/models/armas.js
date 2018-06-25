@@ -7,9 +7,6 @@ var armaSchema = mongoose.Schema({
     municiones: { type: Boolean }
 });
 
-armaSchema.pre("save", function(done){
-    var arma = this;
-});
 
 armaSchema.methods.name = function() {
     return this.descripcion || this.categoria;

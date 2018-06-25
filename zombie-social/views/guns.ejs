@@ -1,13 +1,21 @@
 <% include _header %>
-<h1> He aquí tu armamento!</h1>
-
+<h1> He aquí tu armamento! 
+<a href="/addGun" class="btn btn-primary pull-right" role="button"> Agrega una nueva </a></h1>
 <% armas.forEach((arma) => { %>
-<div class="panel panel-default">
+<div class="panel panel-danger">
     <div class="panel-heading">
          <p><%= arma.categoria %></p>
     </div>
     <% if(arma.descripcion) { %>
-        <div class="panel-body"><%= arma.descripcion %></div>
+        <div class="panel-body"><%= arma.descripcion %>
+        <p></p>
+        <% if(arma.fuerza) { %>
+            <p>Fuerza: <%= arma.fuerza %></p>
+        <% } %>
+        <% if(arma.municiones === true) { %>
+            <p>Municiones: Si</p>                
+        <% } %>
+        </div>
 <% } %>
 </div>
 <% }) %>

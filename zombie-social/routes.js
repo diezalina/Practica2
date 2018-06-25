@@ -35,7 +35,7 @@ router.get("/zombies/:username",(req,res,next) =>{
         res.render("profile",{ zombie:zombie });
     });
 });
-
+//apartado signup 
 router.get("/signup", (req, res) =>{
     res.render("signup");
 });
@@ -61,6 +61,8 @@ router.post("/signup",(req, res, next)=>{
     });
 });
 
+
+//armamento, apartado para agregar armas
 router.get("/addGun", (req, res) =>{
     res.render("addGun");
 });
@@ -68,7 +70,7 @@ router.get("/addGun", (req, res) =>{
 router.post("/addGuns",(req, res, next)=>{
     var descripcion = req.body.descripcion;
     var categoria = req.body.categoria;
-    var municiones = req.body.municones;
+    var municiones = Boolean(req.body.municiones);
     var fuerza = req.body.fuerza;
 
     Arma.findOne({ descripcion: descripcion }, (err, arma) =>{
