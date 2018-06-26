@@ -98,4 +98,15 @@ router.get("/guns", (req, res, next) =>{
         });
 });
 
+//rutas login
+router.get("/login", (req, res) => {
+    res.render("login");
+});
+
+router.post("/login", passport.authenticate("login",{
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true
+}));
+
 module.exports = router;
