@@ -15,15 +15,18 @@
                 <a class="navbar-brand" href="/">Zombie Nest</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                 <li>
-                    <a href="/guns">Armamento</a>
-                </li>
                 <% if (currentZombie) { %>
                     <li>
                         <a href="/edit">
                             Hola,
                             <%= currentZombie.name() %>
                         </a>
+                    </li>
+                    <li>
+                        <a href="/guns">Armamento</a>
+                    </li>
+                    <li>
+                        <a><span class="badge"><%= currentZombie.usrRole() %> </span></a>
                     </li>
                     <li>
                         <a href="/logout">Salir</a>
